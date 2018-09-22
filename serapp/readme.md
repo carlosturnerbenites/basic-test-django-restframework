@@ -19,3 +19,15 @@ python3 manage.py createsuperuser --email carlosturnerbenites@gmail.com --userna
 
 pip3 install coreapi
 
+
+python3 manage.py makemigrations series
+python3 manage.py sqlmigrate series 0001
+
+
+python3 manage.py shell
+>>> from apps.series.models import Genre, Serie
+In [2]: g = Genre(name="Seinen")
+In [3]: g.save()
+In [7]: import datetime
+s = Serie(name="Mushishi", rate=10, airing_at=datetime.datetime.now())
+s.genres.add(g)

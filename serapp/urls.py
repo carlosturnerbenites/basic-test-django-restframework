@@ -19,13 +19,18 @@ from django.conf.urls import url, include
 
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
-from apps.api import views
+from apps.api import views as api_views
+from apps.series import views as series_views
 
 schema_view = get_schema_view(title='Serapp API')
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'users', api_views.UserViewSet)
+router.register(r'groups', api_views.GroupViewSet)
+
+router.register(r'genres', series_views.GenreViewSet)
+router.register(r'series', series_views.SerieViewSet)
+
 
 urlpatterns = [
     url(r'^schema/$', schema_view),

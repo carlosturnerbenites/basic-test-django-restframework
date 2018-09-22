@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # custom
     'apps.api',
+    'apps.series',
 
     # thrid
     'rest_framework',
